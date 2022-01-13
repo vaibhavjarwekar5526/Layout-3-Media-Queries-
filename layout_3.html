@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout-3 (Media Queries)</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .layout{
+            display: grid;
+            gap: 20px;
+            background-color: white;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        #nav{
+            grid-area: y;
+            background-color: yellow;
+            font-size: 50px;
+            font-weight: bold;
+            padding: 15px;
+        }
+        #left{
+            grid-area: r;
+            background-color: red;
+            font-size: 25px;
+            padding: 15px;
+        }
+        #right-1{
+            grid-area: g1;
+        }
+        #right-2{
+            grid-area: g2;
+        }
+        #right-3{
+            grid-area: g3;
+        }
+        #right-1, #right-2, #right-3{
+            background-color:lawngreen;
+            font-size: 25px;
+            padding: 15px;
+        }
+
+
+        @media screen and (max-width:600px){
+            .layout{
+                width: 380px;
+                grid-template-areas: 'y'
+                                     'r'
+                                     'g1'
+                                     'g2'
+                                     'g3';
+                grid-template-rows: 60px 200px 110px 110px 110px;
+            }
+            #nav{
+                font-size: 25px;
+            }
+            
+        }
+        @media screen and (min-width:600px){
+            .layout{
+                width: 800px;
+                column-gap: 40px;
+                grid-template-areas: 'y y y'
+                                     'r r r'
+                                     'g1 g2 g3';
+                grid-template-rows: 80px 280px 140px;
+            }
+        }
+        @media screen and (min-width:992px){
+            .layout{
+                width: 1150px;
+                column-gap: 40px;
+                grid-template-areas: 'y y y y y'
+                                     'r r r r g1'
+                                     'r r r r g2'
+                                     'r r r r g3';
+                grid-template-rows: 80px 140px 140px 140px;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div id="nav">Navigation</div>
+        <div id="left">LEFT BOX</div>
+        <div id="right-1">RIGHT BOX 1</div>
+        <div id="right-2">RIGHT BOX 2</div>
+        <div id="right-3">RIGHT BOX 3</div>
+    </div>
+</body>
+</html>
